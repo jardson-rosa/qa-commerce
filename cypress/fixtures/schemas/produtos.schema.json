@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "required": ["products", "totalPages", "currentPage"],
+    "properties": {
+      "products": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": ["id", "name", "price"],
+          "properties": {
+            "id": { "type": "integer" },
+            "name": { "type": "string" },
+            "price": { "type": "number" },
+            "description": { "type": "string" }
+          }
+        }
+      },
+      "totalPages": { "type": "integer" },
+      "currentPage": { "type": "integer" }
+    }
+}

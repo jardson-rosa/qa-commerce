@@ -5,7 +5,15 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/server.js",
-    "db": "node scripts/init_db.js"
+    "db": "node scripts/init_db.js",
+    "test:e2e": "cypress run",
+    "test:e2e:open": "cypress open",
+    "test": "npm run db && start-server-and-test start http://localhost:3000 test:e2e"
+  },
+  "cypress-cucumber-preprocessor": {
+    "stepDefinitions": [
+      "cypress/support/step_definitions/**/*.js"
+    ]
   },
   "keywords": [],
   "author": "",
@@ -20,5 +28,12 @@
     "sqlite3": "^5.1.7",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^21.0.3",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.8",
+    "ajv": "^8.20.0",
+    "cypress": "^13.17.0",
+    "start-server-and-test": "^2.0.3"
   }
 }
