@@ -21,3 +21,11 @@ Cypress.Commands.add(
 Cypress.Commands.add("obterProduto", (productId) => {
   cy.request("GET", `/api/produtos/${productId}`).its("body");
 });
+
+Cypress.Commands.add("listarProdutos", (page = 1) => {
+  cy.request({
+    method: "GET",
+    url: `/api/produtos?page=${page}`,
+    failOnStatusCode: false,
+  });
+});
